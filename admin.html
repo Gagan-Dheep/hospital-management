@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .aheading{
+            background: lightgray;
+           text-align: center; 
+        }
+        .container{
+            display: flex;
+            /* justify-content: space-between; */
+            align-items: center;
+        }
+        .container .box{
+            padding: 10px 10px;
+            background-color: azure;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="aheading">ADMIN PANEL</h1>
+
+    <div class="container">
+        <div class="box">ADD PATIENT</div>
+        <div class="box">UPDATE PATIENT</div>
+        <div class="box">DELETE PATIENT</div>
+    </div>
+</body>
+</html>
