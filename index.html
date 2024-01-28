@@ -1,46 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-           font-family: Georgia, 'Times New Roman', Times, serif;
+            font-family: Georgia, 'Times New Roman', Times, serif;
         }
 
-        .h-title{
+        .h-title {
             padding: 10px;
             background: gainsboro;
             text-align: center;
         }
-        .heading{
+
+        .heading {
             color: black;
             padding: 5px 0;
         }
-        .front-group{
+
+        .front-group {
             display: flex;
             justify-content: space-between;
         }
-        .box-container{
+
+        .box-container {
             display: flex;
             flex-direction: column;
             align-items: flex-end;
             height: 100vh;
             background: white;
         }
-        .hms_img img{
+
+        .hms_img img {
             max-width: 700px;
             margin-top: -40px;
             background: url(./images/graph.png);
             background-size: cover;
             background-repeat: no-repeat;
         }
-        .box{
+
+        .box {
             background-color: black;
             color: white;
             width: 420px;
@@ -48,43 +56,50 @@
             text-align: center;
             padding: 30px 20px;
         }
-        .Login-popup{
+
+        .Login-popup {
             display: none;
             z-index: 1;
             position: fixed;
             height: 100%;
             width: 100%;
-            background-color: rgba(0,0,0,0.29);
+            background-color: rgba(0, 0, 0, 0.29);
         }
-        .Login-popup .container{
+
+        .Login-popup .container {
             width: 400px;
             height: 220px;
             margin-top: 18%;
-            margin-left:38% ;
+            margin-left: 38%;
             background: rgb(255, 255, 255);
             padding: 30px 20px;
         }
-        .close{
+
+        .close {
             font-size: 25px;
             margin: 2px 3px;
         }
-        .login_form{
+
+        .login_form {
             padding-left: 20px;
-           color: rgb(0, 0, 0);
+            color: rgb(0, 0, 0);
         }
-        .group{
+
+        .group {
             position: relative;
         }
-        .input{
+
+        .input {
             padding: 10px;
             width: 100%;
             max-width: 200px;
             box-sizing: border-box;
             outline: none;
             margin-bottom: 2px;
-            border: 1px solid rgba(0,0,0,0.1);
+            border: 1px solid rgba(0, 0, 0, 0.1);
         }
-        .placeholder{
+
+        .placeholder {
             position: absolute;
             top: 10px;
             left: 8px;
@@ -93,12 +108,15 @@
             transition: 0.3s;
             pointer-events: none;
         }
-        .input:focus +  .placeholder{
+
+        .input:focus+.placeholder,
+        .input:not(.empty)+.placeholder {
             top: -8px;
             background-color: white;
-            color: #4b4b4b;
+            /* color: #4b4b4b; */
         }
-        .form_button{
+
+        .form_button {
             width: 30%;
             height: 40px;
             color: #fff;
@@ -110,17 +128,17 @@
             cursor: pointer;
             transition: .2s ease-in;
         }
+
         .form_button:hover {
-            background: linear-gradient(  #ac94d9 0%, #915cf4 50%, #6d44b8 100%);
+            background: linear-gradient(#ac94d9 0%, #915cf4 50%, #6d44b8 100%);
         }
-        .icon{
+
+        .icon {
             font-size: 25px;
         }
-
-
-        
     </style>
 </head>
+
 <body>
     <h1 class="h-title">HOSPITAL MANAGEMENT SYSTEM</h1>
 
@@ -128,10 +146,10 @@
         <div class="container">
             <div onclick="hideLogin('adminLogin')"><i class="fa-solid fa-xmark close"></i></div>
             <form class="login_form">
-            <h2 class="heading">ADMIN LOGIN</h2>
+                <h2 class="heading">ADMIN LOGIN</h2>
                 <div class="group">
-                    <input type="email" id="adminuser"  class="input">
-                <label for="adminuser" class="placeholder">USERNAME</label>
+                    <input type="email" id="adminuser" class="input">
+                    <label for="adminuser" class="placeholder">USERNAME</label>
                 </div>
                 <div class="group">
                     <input type="password" id="adminpassword" class="input">
@@ -144,67 +162,69 @@
 
     <div class="Login-popup" id="doctorLogin">
         <div class="container">
-            <div  onclick="hideLogin('doctorLogin')"><i class="fa-solid fa-xmark close"></i></div>
+            <div onclick="hideLogin('doctorLogin')"><i class="fa-solid fa-xmark close"></i></div>
             <form class="login_form">
-            <h2 class="heading">DOCTOR LOGIN</h2>
-            <div class="group">
-                <input type="email" id="docuser" class="input">
-                <label for="docuser" class="placeholder">USERNAME</label>
-            </div>
-            <div class="group">
-                <input type="password" id="docpassword" class="input">
-                <label for=" docpassword" class="placeholder">PASSWORD</label>
-            </div>
-                
-               <br> <button type="submit" class="form_button" onclick="login('doctorLogin')">LOGIN</button>
+                <h2 class="heading">DOCTOR LOGIN</h2>
+                <div class="group">
+                    <input type="email" id="docuser" class="input">
+                    <label for="docuser" class="placeholder">USERNAME</label>
+                </div>
+                <div class="group">
+                    <input type="password" id="docpassword" class="input">
+                    <label for=" docpassword" class="placeholder">PASSWORD</label>
+                </div>
+
+                <br> <button type="submit" class="form_button" onclick="login('doctorLogin')">LOGIN</button>
             </form>
         </div>
     </div>
 
     <div class="Login-popup" id="patientLogin">
         <div class="container">
-            <div  onclick="hideLogin('patientLogin')"><i class="fa-solid fa-xmark close"></i></div>
+            <div onclick="hideLogin('patientLogin')"><i class="fa-solid fa-xmark close"></i></div>
             <form class="login_form">
-            <h2 class="heading">PATIENT LOGIN</h2>
-            <div class="group">
-                <input type="email" id="adminuser"class="input">
-                <label for="adminuser" class="placeholder">USERNAME</label>
-            </div>
-            <div class="group">
-                <input type="password" id="adminpassword" class="input">
-                <label for=" adminpassword" class="placeholder">PASSWORD</label>
-            </div>
-               <br> <button type="submit" class="form_button" onclick="login('patientLogin')">LOGIN</button>
+                <h2 class="heading">PATIENT LOGIN</h2>
+                <div class="group">
+                    <input type="email" id="adminuser" class="input">
+                    <label for="adminuser" class="placeholder">USERNAME</label>
+                </div>
+                <div class="group">
+                    <input type="password" id="adminpassword" class="input">
+                    <label for=" adminpassword" class="placeholder">PASSWORD</label>
+                </div>
+                <br> <button type="submit" class="form_button" onclick="login('patientLogin')">LOGIN</button>
             </form>
         </div>
-       
+
     </div>
 
     <div class="front-group">
         <div class="hms_img">
             <img src="./images/Hospital-Management-1.png" alt="Hospital-Management-1">
         </div>
-    
+
         <div class="box-container">
             <div class="box" onclick="showLogin('adminLogin')"><i class="fa-solid fa-user-tie icon"></i><br>ADMIN</div>
-            <div class="box" onclick="showLogin('doctorLogin')"><i class="fa-solid fa-user-doctor icon"></i><br>DOCTOR</div>
+            <div class="box" onclick="showLogin('doctorLogin')"><i class="fa-solid fa-user-doctor icon"></i><br>DOCTOR
+            </div>
             <div class="box" onclick="showLogin('patientLogin')"><i class="fa-solid fa-bed icon"></i><br>PATIENT</div>
         </div>
     </div>
 
-<script>
-    function showLogin(type) {
+    <script>
+        function showLogin(type) {
             document.getElementById(type).style.display = 'block';
         }
 
         function hideLogin(type) {
             document.getElementById(type).style.display = 'none';
         }
-        function login(type){
+        function login(type) {
             alert("login successfully");
         }
-</script>
+    </script>
 
-    
+
 </body>
+
 </html>
